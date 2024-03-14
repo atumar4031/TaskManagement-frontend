@@ -1,0 +1,113 @@
+<mat-toolbar color="primary">
+  <span>Task Management</span>
+  <span class="app-name"></span>
+  <p (click)="logout()" style="margin-top: 10px">Logout</p>
+  <button
+    (click)="goToProfile()"
+    mat-icon-button
+    [matMenuTriggerFor]="profileMenu"
+  >
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #profileMenu="matMenu">
+    <button mat-menu-item>Profile</button>
+    <!-- Add other profile options here -->
+  </mat-menu>
+</mat-toolbar>
+
+<div class="dashboard">
+  <h1>Task Management</h1>
+
+  <!-- Add Todo Input -->
+  <div class="add-todo">
+    <form #todoForm="ngForm" (ngSubmit)="addTodo(todoForm)">
+      <input
+        type="text"
+        placeholder="Title"
+        [(ngModel)]="newTodo.title"
+        name="title"
+        required
+      />
+      <input
+        type="text"
+        placeholder="Description"
+        [(ngModel)]="newTodo.description"
+        name="description"
+      />
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          [matDatepicker]="dueDatepicker"
+          name="dueDate"
+          placeholder="Due Date"
+          [(ngModel)]="newTodo.dueDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="dueDatepicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #dueDatepicker></mat-datepicker>
+      </mat-form-field>
+      <input
+        type="text"
+        placeholder="Priority"
+        [(ngModel)]="newTodo.priority"
+        name="priority"
+      />
+
+      <button type="submit">Add</button>
+    </form>
+  </div>
+
+  <!-- Sort By Selector -->
+  <div class="sort-by">
+    <label for="sortBy">Sort By:</label>
+    <select
+      name="sortBy"
+      id="sortBy"
+      [(ngModel)]="sortedBy"
+      (change)="loadTodos()"
+    >
+      <option value="priority">Priority</option>
+      <option value="dueDate">Due Date</option>
+    </select>
+  </div>
+
+  <!-- Todo List -->
+  <div class="todo-list">
+    <div class="todo" *ngFor="let todo of todos">
+      <!-- Display todo details -->
+      <span *ngIf="editingTodoId !== todo.id; else editTodo">
+        <div>
+          <p><strong>Title:</strong> {{ todo.title }}</p>
+          <p><strong>Due Date:</strong> {{ todo.dueDate }}</p>
+          <p><strong>Priority:</strong> {{ todo.priority }}</p>
+          <p><strong>Description:</strong> {{ todo.description }}</p>
+          <p><strong>Status:</strong> {{ todo.status }}</p>
+        </div>
+        <button (click)="EditTodo(todo.id)">Edit</button>
+        <button (click)="deleteTask(todo.id)">Delete</button>
+      </span>
+
+      <ng-template #editTodo>
+        <form action=""></form>
+        <input type="text" [(ngModel)]="todo.title" />
+        <input type="text" [(ngModel)]="todo.dueDate" />
+        <input type="text" [(ngModel)]="todo.priority" />
+        <input type="text" [(ngModel)]="todo.description" />
+        <input type="text" [(ngModel)]="todo.status" />
+        <button (click)="saveTodoEdits(todo.id, todo)">Save</button>
+        <button (click)="cancelEdit()">Cancel</button>
+      </ng-template>
+    </div>
+  </div>
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 0">
+      Previous
+    </button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+      Next
+    </button>
+  </div>
+</div>

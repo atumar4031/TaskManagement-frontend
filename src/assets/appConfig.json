@@ -1,0 +1,5 @@
+{
+  "loginUrl": "/api/v1/auth/login",
+  "registerUrl": "/api/v1/auth/register",
+  "baseUrl": "https://taskmanagementapplication-production.up.railway.app"
+}

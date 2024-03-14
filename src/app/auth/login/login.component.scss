@@ -1,0 +1,16 @@
+.login-form-container {
+  position: absolute;
+  top: 10%;
+  left: 32%;
+  width: 25%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  padding: 100px 50px;
+  border-radius: 20px;
+}
+
+.login-btn {
+  margin-top: 25px;
+}

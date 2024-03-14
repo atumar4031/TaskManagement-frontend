@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+  <span routerLink="/dashboard">Task Management</span>
+  <span class="app-name"></span>
+  <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #profileMenu="matMenu">
+    <button mat-menu-item>Profile</button>
+    <!-- Add other profile options here -->
+  </mat-menu>
+</mat-toolbar>
+
+<div class="change-user-info">
+  <h2>Change User Info</h2>
+  <form #userForm="ngForm" (ngSubmit)="submitForm(userForm)">
+    <div>
+      <label for="username">First Name:</label>
+      <input
+        matInput
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        required
+      />
+    </div>
+    <div>
+      <label for="lastname">Last Name:</label>
+      <input
+        matInput
+        type="text"
+        id="lastname"
+        name="lastname"
+        [(ngModel)]="lastname"
+        required
+      />
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input
+        matInput
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+      />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>

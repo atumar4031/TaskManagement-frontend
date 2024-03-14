@@ -1,0 +1,54 @@
+.change-user-info {
+  max-width: 400px; /* Adjust the maximum width as needed */
+  margin: 10% auto; /* Center the form horizontally */
+  padding: 20px; /* Add some padding to the form */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 5px; /* Add border radius for rounded corners */
+}
+
+.change-user-info h2 {
+  font-size: 24px; /* Adjust the heading font size */
+  margin-bottom: 20px; /* Add some bottom margin */
+}
+
+.change-user-info form {
+  display: flex;
+  flex-direction: column;
+}
+
+.change-user-info label {
+  font-weight: bold; /* Make labels bold */
+  margin-bottom: 8px; /* Add some bottom margin */
+}
+
+.change-user-info input {
+  padding: 8px; /* Add padding to inputs */
+  margin-bottom: 16px; /* Add some bottom margin */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 3px; /* Add border radius */
+}
+
+.change-user-info button {
+  padding: 10px 20px; /* Add padding to the button */
+  background-color: #007bff; /* Set button background color */
+  color: #fff; /* Set button text color */
+  border: none; /* Remove button border */
+  border-radius: 3px; /* Add border radius */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.change-user-info button:hover {
+  background-color: #0056b3; /* Change button background color on hover */
+}
+
+.app-name {
+  flex-grow: 1; /* This will make the app name span take up all available space */
+}
+
+.fill-space {
+  flex-grow: 2; /* This will make the fill space span take up more space than the app name, pushing the profile icon to the right */
+}
+
+.mat-icon-button {
+  margin-left: 8px; /* Add some margin to the left of the icon button for spacing */
+}

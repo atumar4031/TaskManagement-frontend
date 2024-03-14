@@ -1,0 +1,91 @@
+.dashboard {
+  padding: 20px;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .add-todo {
+    margin-bottom: 20px;
+
+    input[type="text"] {
+      padding: 18px 20px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 8px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+  .todo-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 35%;
+    margin: 0 auto;
+    justify-content: center;
+
+    .todo {
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #e0e0e0;
+      }
+
+      span {
+        font-size: 18px;
+        color: #333;
+      }
+
+      input[type="text"] {
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      button {
+        padding: 8px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.app-name {
+  flex-grow: 1; /* This will make the app name span take up all available space */
+}
+
+.fill-space {
+  flex-grow: 2; /* This will make the fill space span take up more space than the app name, pushing the profile icon to the right */
+}
+
+.mat-icon-button {
+  margin-left: 8px; /* Add some margin to the left of the icon button for spacing */
+}

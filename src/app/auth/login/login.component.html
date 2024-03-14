@@ -1,0 +1,43 @@
+<main class="main-container">
+  <div>
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <div class="login-form-container">
+        <h1>Login</h1>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="example@email.com"
+            name="username"
+            ngModel
+            required
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            placeholder="Password@123"
+            name="password"
+            ngModel
+            required
+          />
+        </mat-form-field>
+        <button
+          class="login-btn"
+          mat-raised-button
+          color="accent"
+          type="submit"
+          [disabled]="!loginForm.valid"
+        >
+          Login
+        </button>
+
+        <p style="margin-top: 10px">
+          Don't have an account?
+          <span routerLink="/register" style="color: #ff3f80">Register</span>
+        </p>
+      </div>
+    </form>
+  </div>
+</main>
